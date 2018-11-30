@@ -14,17 +14,19 @@ client.on('message', msg => {
     
     if(message.author.bot) return;
     
-    if(command === "ping") {
-    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
-    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
-    const m = await message.channel.send("Ping?");
-    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
+
 
     if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild) return;
 
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
 
     const args = msg.content.split(' ').slice(1).join(' ');
+    
+    if(command === "ping") {
+    // Calculates ping between sending a message and editing it, giving a nice round-trip latency.
+    // The second ping is an average latency between the bot and the websocket server (one-way, not round-trip)
+    const m = await message.channel.send("Ping?");
+    m.edit(`Pong! Latency is ${m.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
 
     if (command === 'guide') return msg.channel.send('https://git.io/d.js-heroku');
 

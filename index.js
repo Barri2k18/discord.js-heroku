@@ -21,6 +21,8 @@ client.on('message', msg => {
     if (command === 'guide') return msg.channel.send('https://git.io/d.js-heroku');
 
     if (command === 'testing') return msg.channel.send('<a:DiscordHype:516622589473456158>');
+    
+    if (command === 'prefix') return msg.channel.send(process.env.PREFIX);
 
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 

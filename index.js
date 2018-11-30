@@ -21,10 +21,10 @@ client.on('ready', function() {
       await bot.user.setPresence({
         game: {
           name: `${statuslist[random]}`,
-          type: "STREAMING"
+          type: "PLAYING"
           //url: 'https://www.twitch.tv/spokloo'
         },
-        status: "idle"
+        status: "online"
       });
     } catch (error) {
       console.error(error);
